@@ -1,0 +1,4 @@
+{
+    "restructuredtext.confPath": "${workspaceFolder}/source",
+    "restructuredtext.languageServer.disabled": true
+}

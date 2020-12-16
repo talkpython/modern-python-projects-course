@@ -40,7 +40,7 @@ def colorize_status(url, status):
 
 
 @click.command()
-@click.argument("urls", nargs=-1)
+@click.argument("urls", nargs=-1, required=True)
 @click.option("--daemon", "-d", default=False, is_flag=True)
 def check(urls, daemon):
     """Check urls and print their HTTP statuses (with colors)

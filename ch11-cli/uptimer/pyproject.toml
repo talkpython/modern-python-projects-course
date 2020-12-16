@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "uptimer"
+version = "0.1.0"
+description = ""
+authors = ["Sebastian Witowski <witowski.sebastian@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+click = "^7.1.2"
+requests = "^2.25.0"
+colorama = "^0.4.4"
+pytest-mock = "^3.4.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.0"
+Sphinx = "^3.3.1"
+
+[tool.poetry.scripts]
+uptimer = "uptimer.uptimer:check"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

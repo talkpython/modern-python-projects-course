@@ -1,7 +1,7 @@
-=====
-Usage
-=====
+==========
+Quickstart
+==========
 
-To use Uptimer in a project::
+To use Uptimer in your terminal::
 
-    import uptimer
+    $ uptimer https://www.website-to-check.com

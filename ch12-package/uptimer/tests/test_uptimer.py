@@ -1,37 +1,73 @@
-#!/usr/bin/env python
-
-"""Tests for `uptimer` package."""
-
+import click
 import pytest
-
+import requests
 from click.testing import CliRunner
-
-from uptimer import uptimer
-from uptimer import cli
-
-
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+from uptimer import __version__
+from uptimer.cli import main
+from uptimer.helpers import check_url, colorize_status
 
 
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+def test_version():
+    assert __version__ == "0.1.0"
 
 
-def test_command_line_interface():
-    """Test the CLI."""
+def mock_response_object(code):
+    resp = requests.Response()
+    resp.status_code = code
+    return resp
+
+
+def test_check_url(mocker):
+    mocker.patch("requests.head", return_value=mock_response_object(200))
+    assert check_url("dummyurl") == 200
+
+    mocker.patch("requests.head", return_value=mock_response_object(404))
+    assert check_url("dummyurl") == 404
+
+    with pytest.raises(TypeError):
+        check_url()
+
+
+def test_colorize_status(mocker):
+    mocker.patch("click.secho")
+    # colorize_status("dummyurl", 200)
+    # click.secho.assert_called()
+    # Or to check if we called it with correct parameters:
+    url = "dummyurl"
+    status = 200
+    colorize_status(url, status)
+    click.secho.assert_called_with(f"{url} -> {status}", fg="green")
+
+
+@pytest.mark.parametrize(
+    "code,color",
+    [
+        (200, "green"),
+        (304, "yellow"),
+        (404, "bright_red"),
+        (500, "red"),
+        (1, "magenta"),
+    ],
+)
+def test_check_one_url(mocker, code, color):
+    mocker.patch("requests.head", return_value=mock_response_object(code))
+
     runner = CliRunner()
-    result = runner.invoke(cli.main)
-    assert result.exit_code == 0
-    assert "uptimer.cli.main" in result.output
-    help_result = runner.invoke(cli.main, ["--help"])
-    assert help_result.exit_code == 0
-    assert "--help  Show this message and exit." in help_result.output
+    result = runner.invoke(main, ["dummyurl"], color=True)
+
+    expected_message = click.style(f"dummyurl -> {code}", fg=color)
+    assert result.output == f"{expected_message}\n"
+
+
+def test_check_multiple_urls(mocker):
+    mocker.patch(
+        "requests.head",
+        side_effect=[mock_response_object(200), mock_response_object(500)],
+    )
+
+    runner = CliRunner()
+    result = runner.invoke(main, ["dummyurl1", "dummyurl2"], color=True)
+
+    expected_message1 = click.style("dummyurl1 -> 200", fg="green")
+    expected_message2 = click.style("dummyurl2 -> 500", fg="red")
+    assert result.output == f"{expected_message1}\n{expected_message2}\n"

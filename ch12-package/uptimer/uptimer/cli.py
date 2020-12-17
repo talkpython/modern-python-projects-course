@@ -1,14 +1,33 @@
 """Console script for uptimer."""
 import sys
+from time import sleep
+
 import click
+
+from uptimer.helpers import check_url, colorize_status
 
 
 @click.command()
-def main(args=None):
-    """Console script for uptimer."""
-    click.echo("Replace this message by putting your code into " "uptimer.cli.main")
-    click.echo("See click documentation at https://click.palletsprojects.com/")
-    return 0
+@click.argument("urls", nargs=-1, required=True)
+@click.option("--daemon", "-d", default=False, is_flag=True)
+def main(urls, daemon):
+    """Check urls and print their HTTP statuses (with colors)
+
+    :param urls: URL (or a tuple with multiple URLs) to check
+    :type urls: str or tuple(str)
+    :param daemon: If set to True, after checking all URLs,
+                   sleep for 5 seconds and check them again
+    :type daemon: bool
+    """
+
+    while True:
+        for url in urls:
+            status_code = check_url(url)
+            if status_code:
+                colorize_status(url, status_code)
+        if not daemon:
+            break
+        sleep(5)
 
 
 if __name__ == "__main__":

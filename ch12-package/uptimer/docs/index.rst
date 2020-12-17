@@ -8,7 +8,7 @@ Welcome to Uptimer's documentation!
    readme
    installation
    usage
-   modules
+   api
    contributing
    authors
    history

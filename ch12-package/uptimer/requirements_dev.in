@@ -1,0 +1,13 @@
+bump2version
+wheel
+watchdog
+flake8
+tox
+coverage
+Sphinx
+twine
+Click
+pytest
+pytest-runner
+pytest-mock
+sphinx-click

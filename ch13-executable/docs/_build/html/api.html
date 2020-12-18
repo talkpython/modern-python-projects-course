@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API &#8212; Uptimer 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="Quickstart" href="usage.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-uptimer.helpers">
+<span id="api"></span><h1>API<a class="headerlink" href="#module-uptimer.helpers" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="uptimer.helpers.check_url">
+<code class="sig-prename descclassname">uptimer.helpers.</code><code class="sig-name descname">check_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/uptimer/helpers.html#check_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uptimer.helpers.check_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send HEAD request to the url and return the HTTP status code</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – URL to check</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTTP status code</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="uptimer.helpers.colorize_status">
+<code class="sig-prename descclassname">uptimer.helpers.</code><code class="sig-name descname">colorize_status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/uptimer/helpers.html#colorize_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uptimer.helpers.colorize_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the URL and status in color to the terminal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – URL to print</p></li>
+<li><p><strong>status</strong> (<em>str</em>) – status used to determine the color of the output</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="uptimer">
+<h2>uptimer<a class="headerlink" href="#uptimer" title="Permalink to this headline">¶</a></h2>
+<p>Check urls and print their HTTP statuses (with colors)</p>
+<dl class="field-list simple">
+<dt class="field-odd">param urls</dt>
+<dd class="field-odd"><p>URL (or a tuple with multiple URLs) to check</p>
+</dd>
+<dt class="field-even">type urls</dt>
+<dd class="field-even"><p>str or tuple(str)</p>
+</dd>
+<dt class="field-odd">param daemon</dt>
+<dd class="field-odd"><p>If set to True, after checking all URLs,
+sleep for 5 seconds and check them again</p>
+</dd>
+<dt class="field-even">type daemon</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>uptimer <span class="o">[</span>OPTIONS<span class="o">]</span> URLS...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt id="cmdoption-uptimer-d">
+<span id="cmdoption-uptimer-daemon"></span><code class="sig-name descname">-d</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--daemon</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-uptimer-d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt id="cmdoption-uptimer-arg-URLS">
+<span id="cmdoption-uptimer-arg-urls"></span><code class="sig-name descname">URLS</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-uptimer-arg-URLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument(s)</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Uptimer</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Uptimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#uptimer">uptimer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="usage.html" title="previous chapter">Quickstart</a></li>
+      <li>Next: <a href="contributing.html" title="next chapter">Contributing</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Sebastian Witowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

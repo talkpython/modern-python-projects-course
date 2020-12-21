@@ -15,20 +15,21 @@ def main():
     """Draw a GUI for checking URLs"""
 
     def check_urls():
-        # Grab all the text from URLs box and split it
+        # Grab text from URLs box and split it
         urls_string = urls_box.get("1.0", tk.END)
         urls = urls_string.rstrip().split("\n")
-        # Remove the "disabled" state, so we can edit response textbox
+        # Remove the "disabled" state from the response box, so we can edit it
         response_box.configure(state="normal")
         # Remove all current content
         response_box.delete("1.0", tk.END)
         for line, url in enumerate(urls, start=1):
             status_code = check_url(url)
             if status_code:
+                # Write HTTP status next to each URL ...
                 response_box.insert(tk.END, str(status_code) + "\n")
+                # ... and colorize it
                 fg_color = COLORS.get(status_code // 100, "magenta")
                 response_box.tag_add(fg_color, f"{line}.0", f"{line}.9")
-
             else:
                 response_box.insert(tk.END, "Wrong URL!\n")
                 response_box.tag_add("magenta", f"{line}.0", f"{line}.9")
@@ -37,7 +38,7 @@ def main():
 
     # Create a new window
     window = tk.Tk()
-    # Add grey background
+    # Add gray background
     window.config(bg="#f6f6f6")
 
     # Add label in the first row
@@ -48,7 +49,13 @@ def main():
     urls_box.grid(row=1, column=0)
 
     # Add a "disabled" textbox where we display response codes
-    response_box = tk.Text(window, height=20, width=10, state="disabled", bg="#f6f6f6")
+    response_box = tk.Text(
+        window,
+        height=20,
+        width=10,
+        state="disabled",
+        bg="#f6f6f6"
+    )
     response_box.grid(row=1, column=1)
 
     # Tags can be used to change text color in a text box

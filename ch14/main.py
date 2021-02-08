@@ -37,14 +37,3 @@ async def check(request: Request, urls: str = Form(...)):
         "home.html",
         {"request": request, "statuses": statuses, "colors": COLORS, "urls": urls},
     )
-
-# Test URLs:
-# http://httpstat.us/200
-# http://httpstat.us/301
-# http://httpstat.us/404
-# http://httpstat.us/500
-
-# http://httpstat.us/200?sleep=3000
-# http://httpstat.us/301?sleep=3000
-# http://httpstat.us/404?sleep=3000
-# http://httpstat.us/500?sleep=3000

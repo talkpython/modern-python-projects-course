@@ -12,11 +12,12 @@ RUN useradd --create-home --shell /bin/bash app
 WORKDIR /home/app
 USER app
 
-# Expose port 8000  <-- This is optional, but it's a good practice
-EXPOSE 8000
+# Expose port 80  <-- This is optional, but it's a good practice
+EXPOSE 80
 
 # Copy the rest of the code inside the container 
 COPY . .
 
-# Start gunicorn server with 3 workers, uvicorn worker type and use the 0.0.0.0 host with port 8000
-ENTRYPOINT ["gunicorn", "-w", "3",  "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0:8000", "main:app"]
+# Start gunicorn server with 3 workers, uvicorn worker type and use the 0.0.0.0 host with port 80
+ENTRYPOINT ["gunicorn", "-w", "3",  "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0:80", "main:app"]
+

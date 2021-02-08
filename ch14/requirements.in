@@ -1,6 +1,0 @@
-fastapi             # Web framework
-uvicorn[standard]   # Dev web server and workers for production server
-jinja2              # Templating language
-python-multipart    # Required to use forms with FastAPI
-httpx               # Perform asynchronous HTTP requests
-gunicorn            # Production web server

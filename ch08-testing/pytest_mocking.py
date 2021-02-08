@@ -1,3 +1,5 @@
+# THIS IS A DUMMY CODE THAT WON'T WORK WHEN YOU RUN IT!
+
 # Function
 def charge_customer(amount):
     response = Stripe.charge(amount)

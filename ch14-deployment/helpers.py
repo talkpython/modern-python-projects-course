@@ -9,6 +9,6 @@ async def get_status(url: str) -> int:
         except (httpx.ConnectError, httpx.UnsupportedProtocol):
             # Probably the URL was wrong
             return 0
-        except httpx.TimeoutException:
+        except httpx.ReadTimeout:
             # Timeout
             return -1

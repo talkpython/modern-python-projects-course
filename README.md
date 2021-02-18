@@ -30,7 +30,7 @@ You can find all the additional links mentioned throughout this course at [moder
 
 This course is for people who already know Python's basics, but who still struggle with using it in everyday work. If installing Python packages breaks things on your computer, you're not sure how to start a new Python projects, how to add tests and documentation, or what's the best way to deploy it - this course is for you.
 
-In a few examples I use very simple Flask and FastAPI websites, but it's just a few lines of code and I explain everything.
+In a few examples, I use very simple Flask and FastAPI websites, but it's just a few lines of code, and I explain everything.
 
 ## Sounds interesting?
 

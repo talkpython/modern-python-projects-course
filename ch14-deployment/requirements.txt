@@ -34,7 +34,7 @@ python-dotenv==0.15.0
     # via uvicorn
 python-multipart==0.0.5
     # via -r requirements.in
-pyyaml==5.3.1
+pyyaml==5.4
     # via uvicorn
 rfc3986[idna2008]==1.4.0
     # via httpx

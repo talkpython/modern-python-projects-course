@@ -52,7 +52,7 @@ jeepney==0.6.0
     # via
     #   keyring
     #   secretstorage
-jinja2==2.11.2
+jinja2==2.11.3
     # via sphinx
 keyring==21.5.0
     # via twine
@@ -85,7 +85,7 @@ pycparser==2.20
 pyflakes==2.2.0
     # via flake8
 pygments==2.7.4
-    # via
+# via
     #   readme-renderer
     #   sphinx
 pyparsing==2.4.7

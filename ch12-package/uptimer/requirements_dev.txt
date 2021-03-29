@@ -12,7 +12,7 @@ attrs==20.3.0
     # via pytest
 babel==2.9.0
     # via sphinx
-bleach==3.2.1
+bleach==3.3.0
     # via readme-renderer
 bump2version==1.0.1
     # via -r requirements_dev.in
@@ -84,8 +84,8 @@ pycparser==2.20
     # via cffi
 pyflakes==2.2.0
     # via flake8
-pygments==2.7.3
-    # via
+pygments==2.7.4
+# via
     #   readme-renderer
     #   sphinx
 pyparsing==2.4.7

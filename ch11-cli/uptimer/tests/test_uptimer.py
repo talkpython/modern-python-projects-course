@@ -1,6 +1,7 @@
 import click
 import pytest
 import requests
+import sys
 from click.testing import CliRunner
 from uptimer import __version__
 from uptimer.uptimer import check, check_url, colorize_status
@@ -38,6 +39,9 @@ def test_colorize_status(mocker):
     click.secho.assert_called_with(f"{url} -> {status}", fg="green")
 
 
+@pytest.mark.skipif(
+    sys.platform == "win32", reason="Testing colorized output doesn't work on Windows"
+)
 @pytest.mark.parametrize(
     "code,color",
     [
@@ -58,6 +62,9 @@ def test_check_one_url(mocker, code, color):
     assert result.output == f"{expected_message}\n"
 
 
+@pytest.mark.skipif(
+    sys.platform == "win32", reason="Testing colorized output doesn't work on Windows"
+)
 def test_check_multiple_urls(mocker):
     mocker.patch(
         "requests.head",

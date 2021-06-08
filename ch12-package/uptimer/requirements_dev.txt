@@ -149,7 +149,7 @@ tqdm==4.54.1
     # via twine
 twine==3.2.0
     # via -r requirements_dev.in
-urllib3==1.26.4
+urllib3==1.26.5
     # via requests
 virtualenv==20.2.2
     # via tox

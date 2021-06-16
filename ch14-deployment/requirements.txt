@@ -8,7 +8,7 @@ certifi==2020.12.5
     # via httpx
 click==7.1.2
     # via uvicorn
-fastapi==0.63.0
+fastapi==0.65.2
     # via -r requirements.in
 gunicorn==20.0.4
     # via -r requirements.in
@@ -44,7 +44,7 @@ sniffio==1.2.0
     # via
     #   httpcore
     #   httpx
-starlette==0.13.6
+starlette==0.14.2
     # via fastapi
 uvicorn[standard]==0.13.3
     # via -r requirements.in

@@ -1,5 +1,5 @@
 # requirements.txt
 
-Django==3.1.13
+Django==3.1.14
 pytest
 git+git://github.com/jazzband/django-redis@master#egg=django-redis

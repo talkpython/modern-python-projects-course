@@ -1,4 +1,4 @@
 # Here you can specify the requirements for your project
 
-Django==3.1.13
+Django==3.1.14
 pytest

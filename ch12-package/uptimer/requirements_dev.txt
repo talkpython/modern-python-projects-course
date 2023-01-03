@@ -157,7 +157,7 @@ watchdog==1.0.1
     # via -r requirements_dev.in
 webencodings==0.5.1
     # via bleach
-wheel==0.36.2
+wheel==0.38.1
     # via -r requirements_dev.in
 
 # The following packages are considered to be unsafe in a requirements file:

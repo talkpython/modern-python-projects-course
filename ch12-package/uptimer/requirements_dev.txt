@@ -28,7 +28,7 @@ colorama==0.4.4
     # via twine
 coverage==5.3
     # via -r requirements_dev.in
-cryptography==3.4.7
+cryptography==39.0.1
     # via secretstorage
 distlib==0.3.1
     # via virtualenv
